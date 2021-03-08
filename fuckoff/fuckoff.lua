@@ -1,5 +1,5 @@
 _addon.name = 'FuckOff'
-_addon.version = '0.20'
+_addon.version = '0.21'
 _addon.author = 'Chiaia (Asura)'
 _addon.commands = {'fuckoff','fo'} --Won't do anything atm.
 
@@ -8,7 +8,7 @@ packets = require('packets')
 
 local block_skillup = true
 
-local black_listed_users = T{'TotallyABotOne111111','TotallyABotTwo222222','TotallyABotThree333333',}} -- Want to block all messages from X user then added there name(s) here.
+local black_listed_users = T{'TotallyABotOne111111','TotallyABotTwo222222','TotallyABotThree333333',} -- Want to block all messages from X user then added there name(s) here.
 	
 -- I could do a general digit check on JP instead of set 500/2100 values but atm I feel it's not needed. Will see if they change thier tactics.
 -- If you want to learn more about "Magical Characters" or Patterns in Lua: https://riptutorial.com/lua/example/20315/lua-pattern-matching
