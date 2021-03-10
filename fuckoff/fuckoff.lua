@@ -1,5 +1,5 @@
 _addon.name = 'FuckOff'
-_addon.version = '0.21'
+_addon.version = '0.22'
 _addon.author = 'Chiaia (Asura)'
 _addon.commands = {'fuckoff','fo'} --Won't do anything atm.
 
@@ -7,6 +7,7 @@ require('luau')
 packets = require('packets')
 
 local block_skillup = true
+local block_ambu_flares = true  -- Ambuscade 'Page ... flares up!' messages in Mhaura
 
 local black_listed_users = T{'TotallyABotOne111111','TotallyABotTwo222222','TotallyABotThree333333',} -- Want to block all messages from X user then added there name(s) here.
 	
@@ -29,6 +30,11 @@ windower.register_event('incoming chunk', function(id,data)
 					return true
 				end
 			end
+        end
+    elseif id == 0x027 and block_ambu_flares then 
+        local data = packets.parse('incoming', data)
+        if data['Message ID'] == 0x9fA3 and data['Type'] == 5 then
+            return true
         end
     elseif id == 0x028 and block_skillup then -- Action Message
         local data = packets.parse('incoming', data)
